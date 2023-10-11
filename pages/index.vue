@@ -2,6 +2,7 @@
   <div>
     <NuxtLayout>
       <CallToAction />
+      <CMSTest />
       <Header />
       <Description />
       <AboutUs />
