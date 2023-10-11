@@ -12,9 +12,10 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: "IndexPage",
-    layout: "default"
-  };
+<script setup>
+  useHead({
+    script: [
+      { src: "https://identity.netlify.com/v1/netlify-identity-widget.js" }
+    ]
+  });
 </script>
