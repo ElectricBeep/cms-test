@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: static/img
-public_folder: /img
+media_folder: public/
+public_folder: public/
 
 collections:
   - name: 'blog'
@@ -19,3 +19,16 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'home-article'
+    label: 'Home Article'
+    folder: 'content/home-artiicle'
+    format: 'frontmatter'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+    preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'string', required: true }
+      - { label: "Image", name: "image", widget: "image", required: true }
