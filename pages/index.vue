@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout>
       <CallToAction />
-      <CMSTest />
+      <!-- <CMSTest /> -->
       <Header />
       <Description />
       <AboutUs />
@@ -19,4 +19,11 @@
       { src: "https://identity.netlify.com/v1/netlify-identity-widget.js" }
     ]
   });
+
+  const { data } = await useAsyncData("blog", () =>
+    queryContent("blog")
+      .limit(3)
+      .find()
+  );
+  console.log(data.value.map(entry => entry.title));
 </script>
