@@ -3,7 +3,7 @@
     <NuxtLayout>
       <CallToAction />
       <!-- <CMSTest /> -->
-      <Header />
+      <Header :data="data" />
       <Description />
       <AboutUs />
       <Features />
@@ -20,10 +20,7 @@
     ]
   });
 
-  const { data } = await useAsyncData("blog", () =>
-    queryContent("blog")
-      .limit(3)
-      .find()
+  const { data } = await useAsyncData("home-artiicle", () =>
+    queryContent("home-artiicle").find()
   );
-  console.log(data.value.map(entry => entry.title));
 </script>

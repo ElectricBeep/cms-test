@@ -6,11 +6,10 @@
     <div class="container mx-auto flex flex-col lg:flex-row h-full px-3 md:px-6 lg:px-10">
       <div class="w-full lg:w-1/2 h-full flex flex-col justify-center z-10 py-10 lg:py-0">
         <h1 class="text-5xl text-white font-extrabold text-center lg:text-left">
-          Medical Revolution
+          {{data[0].title}}
         </h1>
         <p class="text-white text-2xl w-full lg:w-4/5 mt-10 text-center lg:text-left">
-          Utilizing combination of different technologies, we are striving
-          to revolutionize and modernize medicine
+          {{data[0].description}}
         </p>
         <div class="mt-10 mx-auto lg:mx-0">
           <CustomButton
@@ -23,7 +22,7 @@
         <NuxtImg
           format="webp"
           quality="3"
-          src="slider.png"
+          :src="data[0].image.split('/')[1]"
           alt="header"
           class="h-4/5 z-10 object-cover"
         />
@@ -34,7 +33,13 @@
 
 <script>
   export default {
-    name: "Header"
+    name: "Header",
+    props: {
+      data: {
+        type: Array,
+        default: []
+      }
+    }
   };
 </script>
 
